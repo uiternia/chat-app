@@ -2,6 +2,7 @@
 import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.vue';
 import { Head } from '@inertiajs/inertia-vue3';
 import { ref } from "vue";
+import { Link } from '@inertiajs/inertia-vue3';
 import { useForm } from '@inertiajs/inertia-vue3';
 
 const fileName = ref("")
@@ -40,7 +41,7 @@ const submit = () => {
     <BreezeAuthenticatedLayout>
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-              s3アップロード 確認
+              s3アップロード/Mailhog
             </h2>
         </template>
 
@@ -58,6 +59,7 @@ const submit = () => {
                         </form>
                     </div>
                     <img :src="urlo" alt="">
+                     <Link :href="route('mail.store')">メールの保存/queue確認 :8025</Link>
                 </div>
             </div>
         </div>
