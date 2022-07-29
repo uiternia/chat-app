@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\MailController;
+use App\Http\Controllers\MessageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,5 +33,7 @@ Route::get('/dashboard', function () {
 
 Route::post('/dashboard',[ImageController::class,'store'])->middleware(['auth:sanctum'])->name('image.store');
 Route::get('/mail/sendMail',[MailController::class,'send'])->middleware(['auth:sanctum'])->name('mail.store');
+
+Route::resource('messages',MessageController::class);
 
 require __DIR__.'/auth.php';
